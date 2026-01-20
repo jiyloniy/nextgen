@@ -1,0 +1,177 @@
+/* Additional Responsive Improvements */
+
+/* Navbar Scroll Effect */
+.navbar.scrolled {
+    padding: 15px 0;
+    background: rgba(10, 14, 39, 0.98) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transitions for all elements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 968px) {
+    .btn {
+        min-height: 48px;
+    }
+    
+    .nav-links a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Landscape mode for tablets */
+@media (max-width: 968px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+}
+
+/* Contact form improvements for mobile */
+@media (max-width: 640px) {
+    .form-group input,
+    .form-group textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 10px;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
+}
+
+/* Better hover states for touch devices */
+@media (hover: none) {
+    .service-card:hover,
+    .portfolio-item:hover,
+    .team-member:hover,
+    .stat-card:hover {
+        transform: none;
+    }
+    
+    .service-card:active,
+    .portfolio-item:active,
+    .team-member:active,
+    .stat-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Improved floating cards for tablets */
+@media (max-width: 968px) and (min-width: 641px) {
+    .floating-card {
+        position: relative !important;
+        margin: 15px auto;
+        max-width: 300px;
+    }
+    
+    .card-1, .card-2, .card-3 {
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+    }
+    
+    .hero-image {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+    }
+}
+
+/* Optimize animations for lower-end devices */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 640px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    p {
+        line-height: 1.8;
+    }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .modal {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .navbar {
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+/* Landscape improvements for phones */
+@media (max-width: 640px) and (orientation: landscape) {
+    .hero {
+        padding: 80px 0 40px;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+}
+
+/* Better portfolio grid for tablets */
+@media (min-width: 641px) and (max-width: 968px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .portfolio-item {
+        height: 280px;
+    }
+}
+
+/* Improved team grid for tablets */
+@media (min-width: 641px) and (max-width: 968px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Better stats layout for tablets */
+@media (min-width: 641px) and (max-width: 968px) {
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
