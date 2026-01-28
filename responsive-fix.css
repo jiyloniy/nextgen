@@ -175,3 +175,135 @@
         gap: 20px;
     }
 }
+
+/* Mobile menu improvements */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--card-bg);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        z-index: 999;
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links a {
+        font-size: 18px;
+        padding: 12px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Ensure images don't overflow on mobile */
+@media (max-width: 640px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .portfolio-item img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Improve button spacing on mobile */
+@media (max-width: 480px) {
+    .hero-buttons {
+        gap: 12px;
+    }
+    
+    .btn {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+}
+
+/* Better service cards on mobile */
+@media (max-width: 640px) {
+    .service-card {
+        min-height: auto;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+}
+
+/* Optimize contact section for mobile */
+@media (max-width: 640px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .info-item {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .info-icon {
+        margin: 0 auto 12px;
+    }
+}
+
+/* Fix footer on mobile */
+@media (max-width: 640px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 15px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+.container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Better touch feedback */
+@media (max-width: 768px) {
+    .btn:active,
+    .portfolio-link:active,
+    .back-button:active {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    
+    .gallery-item:active {
+        transform: scale(0.98);
+    }
+}

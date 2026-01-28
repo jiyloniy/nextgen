@@ -526,15 +526,33 @@ section {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    height: 300px;
+    height: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
 }
 
 .portfolio-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
     position: relative;
     transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.1);
 }
 
 .portfolio-category {
@@ -550,29 +568,10 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.portfolio-item:nth-child(2) .portfolio-image {
-    background: linear-gradient(135deg, #0066ff 0%, #00aaff 100%);
-}
-
-.portfolio-item:nth-child(3) .portfolio-image {
-    background: linear-gradient(135deg, #003d99 0%, #0052cc 100%);
-}
-
-.portfolio-item:nth-child(4) .portfolio-image {
-    background: linear-gradient(135deg, #00aaff 0%, #0066ff 100%);
-}
-
-.portfolio-item:nth-child(5) .portfolio-image {
-    background: linear-gradient(135deg, #0052cc 0%, #003d99 100%);
-}
-
-.portfolio-item:nth-child(6) .portfolio-image {
-    background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
-}
 
 .portfolio-overlay {
     position: absolute;
@@ -580,15 +579,15 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
     opacity: 0;
     transition: all 0.3s ease;
     padding: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -596,31 +595,42 @@ section {
 }
 
 .portfolio-overlay h3 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
 }
 
 .portfolio-overlay p {
-    color: var(--gray-text);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
 }
 
 .portfolio-link {
-    color: white;
-    background: var(--primary-color);
-    padding: 12px 24px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding: 12px 28px;
+    background: var(--gradient-main);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
 }
 
 .portfolio-link:hover {
-    background: var(--accent-color);
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.6);
+}
+
+.portfolio-link i {
+    transition: transform 0.3s ease;
+}
+
+.portfolio-link:hover i {
     transform: translateX(5px);
 }
 
@@ -654,7 +664,7 @@ section {
     width: 120px;
     height: 120px;
     margin: 0 auto;
-    background: var(--gradient-main);
+    background: var(--gradient-main);   
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -665,6 +675,7 @@ section {
 }
 
 .member-photo {
+    
     width: 120px;
     height: 120px;
     margin: 0 auto;
@@ -798,6 +809,179 @@ section {
 
 .form-group textarea {
     resize: vertical;
+}
+
+.form-message {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    display: none;
+    animation: slideDown 0.3s ease;
+}
+
+.form-message.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+}
+
+.form-message.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+.form-message.loading {
+    display: block;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 100px 0;
+    background: var(--dark-bg);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(0, 102, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.15);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 25px 30px;
+    background: transparent;
+    border: none;
+    color: var(--light-text);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--primary-color);
+}
+
+.faq-question i {
+    font-size: 16px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 30px;
+    background: transparent;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 800px;
+    padding: 0 30px 25px;
+}
+
+.faq-answer p {
+    color: var(--gray-text);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* FAQ Responsive */
+@media (max-width: 768px) {
+    .faq-question {
+        padding: 20px;
+        font-size: 16px;
+        gap: 15px;
+    }
+
+    .faq-answer {
+        padding: 0 20px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+    }
+
+    .faq-answer p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .faq-question {
+        padding: 18px 15px;
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        padding: 0 15px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 15px 18px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .faq-item {
+        margin-bottom: 15px;
+    }
 }
 
 /* Footer */
@@ -1314,20 +1498,28 @@ section {
 
 @media (max-width: 640px) {
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
     }
     
     .logo-text {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .logo-icon {
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
     
     .navbar {
-        padding: 15px 0;
+        padding: 12px 0;
+    }
+    
+    .nav-links {
+        font-size: 14px;
+    }
+    
+    .nav-links a {
+        padding: 8px 12px;
     }
     
     .hero {
@@ -1416,18 +1608,36 @@ section {
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: 15px;
+        padding: 0;
     }
     
     .portfolio-item {
-        height: 280px;
+        height: 250px;
+        border-radius: 12px;
+    }
+    
+    .portfolio-item img {
+        object-fit: cover;
+        height: 100%;
+    }
+    
+    .portfolio-overlay {
+        padding: 20px 15px;
     }
     
     .portfolio-overlay h3 {
-        font-size: 20px;
+        font-size: 18px;
+        margin-bottom: 8px;
     }
     
     .portfolio-overlay p {
-        font-size: 14px;
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    .portfolio-link {
+        padding: 10px 20px;
+        font-size: 13px;
     }
     
     .team-grid {
